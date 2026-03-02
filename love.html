@@ -18,12 +18,6 @@ min-height:100vh;
 direction:rtl;
 text-align:center;
 overflow:hidden;
-animation:fadeIn 2s ease-in-out;
-}
-
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
 }
 
 body::before{
@@ -45,14 +39,15 @@ max-width:700px;
 box-shadow:0 10px 40px rgba(0,0,0,0.5);
 }
 
-h1{color:#ff4b5c;}
+h1{
+color:#ff4b5c;
+}
 
-#message{
+.message{
 white-space:pre-line;
 line-height:2;
 font-size:18px;
 color:#444;
-min-height:350px;
 }
 
 .date{
@@ -72,6 +67,7 @@ position:relative;
 flex-wrap:wrap;
 }
 
+/* الصور */
 .person img{
 width:140px;
 height:140px;
@@ -87,44 +83,18 @@ color:#ff4b5c;
 font-weight:bold;
 }
 
-/* قلب بينبض */
+/* القلب في النص (ثابت) */
 .love-heart{
 font-size:40px;
-animation:pulse 1s infinite;
 }
 
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.3);}
-100%{transform:scale(1);}
-}
-
-/* خاتم بيلف */
+/* الخاتم (ثابت بدون لف) */
 .ring{
 position:absolute;
 width:350px;
 height:350px;
 border:2px dashed rgba(255,75,92,0.6);
 border-radius:50%;
-animation:rotate 12s linear infinite;
-}
-
-@keyframes rotate{
-from{transform:rotate(0deg);}
-to{transform:rotate(360deg);}
-}
-
-/* قلوب طايرة */
-.heart{
-position:fixed;
-bottom:-10px;
-animation:float 6s linear infinite;
-z-index:1;
-}
-
-@keyframes float{
-0%{transform:translateY(0);opacity:1;}
-100%{transform:translateY(-100vh);opacity:0;}
 }
 </style>
 </head>
@@ -137,30 +107,7 @@ z-index:1;
 <div class="card">
 <h1>إلى حمودي ❤️</h1>
 
-<div id="message"></div>
-<div class="date">3/3 💕</div>
-
-<div class="couple">
-<div class="ring"></div>
-
-<div class="person">
-<img src="boy.jpg">
-<div class="name">حمودي 💙</div>
-</div>
-
-<div class="love-heart">💞</div>
-
-<div class="person">
-<img src="girl.jpg">
-<div class="name">حوريتي 🤍</div>
-</div>
-
-</div>
-</div>
-
-<script>
-
-var text=`
+<div class="message">
 أولا يعني أنا بحبك بجد وكل كلمة بقولها طالعة من قلبي 💗  
 إنت بالنسبة لي مش شخص عادي… إنت الأمان والضحكة والفرحة 💞  
 
@@ -178,29 +125,28 @@ var text=`
 
 بحبك يا حمودي حب ملوش آخر ♾️  
 وحوريـتك دي ليك وبس 🤍
-`;
+</div>
 
-var i=0;
-function typeWriter(){
-if(i<text.length){
-document.getElementById("message").innerHTML+=text.charAt(i);
-i++;
-setTimeout(typeWriter,40);
-}}
-typeWriter();
+<div class="date">3/3 💕</div>
 
-/* قلوب */
-setInterval(function(){
-var heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML="💗";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*20+15)+"px";
-document.body.appendChild(heart);
-setTimeout(()=>heart.remove(),6000);
-},400);
+<div class="couple">
 
-</script>
+<div class="ring"></div>
+
+<div class="person">
+<img src="boy.jpg">
+<div class="name">حمودي 💙</div>
+</div>
+
+<div class="love-heart">💞</div>
+
+<div class="person">
+<img src="girl.jpg">
+<div class="name">حوريتي 🤍</div>
+</div>
+
+</div>
+</div>
 
 </body>
 </html>
